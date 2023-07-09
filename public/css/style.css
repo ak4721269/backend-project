@@ -1,0 +1,142 @@
+nav {
+    background-color: #f2f2f2;
+    padding: 10px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  nav ul li a {
+    color: #333;
+    text-decoration: none;
+    padding: 5px 10px;
+  }
+  
+  nav ul li a:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  /* Reset default styles */
+
+body, h1, h2, h3, h4, h5, h6, p, ul, li, button, input {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Global Styles */
+  
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 20px;
+  }
+  
+  form {
+    margin-bottom: 30px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button[type="submit"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Header */
+  
+  header {
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  nav ul li a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  /* Registration Form */
+  
+  .register {
+    margin-bottom: 50px;
+  }
+  
+  .register-left {
+    text-align: center;
+  }
+  
+  .register-left img {
+    max-width: 100%;
+  }
+  
+  .register-left h3 {
+    margin-bottom: 30px;
+  }
+  
+  .register-right .nav-tabs {
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .register-right .tab-content {
+    padding: 30px;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+  }
+  
+  .register-heading {
+    margin-bottom: 30px;
+  }
+  
+  .radio.inline label {
+    margin-right: 10px;
+  }
+  
+  .btnRegister {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  
