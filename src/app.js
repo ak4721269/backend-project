@@ -4,9 +4,11 @@ const path = require("path");
 const app = express();
 const hbs = require("hbs");
 const bcrypt = require("bcryptjs");
+const cookieParser = require("cookie-parser");
 
 require("./db/conn");
 const Register = require("./models/registers");
+const auth = require("./middleware/auth");
 const { json } = require("express");
 const { log } = require("console");
 
@@ -18,6 +20,7 @@ const template_path = path.join(__dirname, "../templates/views");
 const partials_path = path.join(__dirname, "../templates/partials");
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({extended:false}));
 
 //for fetching data from index.html file
@@ -35,6 +38,34 @@ app.get("/",(req,res) => {
     // res.send("Hello from Akash!");
     //for default value in case of index.hbs
     res.render("index");
+});
+
+app.get("/account", auth ,(req,res) => {
+    res.render("account");
+
+});
+
+app.get("/logout", auth , async(req,res) => {
+    
+    try {
+        console.log(req.user);
+
+        //for single logout
+        //req.user.tokens = req.user.tokens.filter((currElement) => {
+        //            return currElement.token !== req.token;
+        //})
+
+        //logout from all devices
+        req.user.tokens = [];
+        
+        res.clearCookie("jwt");
+        console.log("logout successfully");
+        await req.user.save();
+        res.render("login");
+    } catch (error) {
+      res.status(500).send(error);  
+    }
+
 });
 
 app.get("/register",(req,res) =>{
@@ -70,6 +101,15 @@ app.post("/register", async (req,res) =>{
             const token = await registerEmployee.generateAuthToken();
             console.log("the token part" + token);
 
+            //The res.cookie function is used to set the cookie name to value.
+            //The value parameter may be a string or converted to JSON.
+            //httpOnly to avoid client side modification
+
+            res.cookie("jwt", token ,{
+                expires:new Date(Date.now() + 60000),
+                httpOnly:true
+            });    
+            console.log(cookie);
 
             const registered = await registerEmployee.save();
             res.status(201).render("index");
@@ -96,6 +136,14 @@ app.post("/login", async(req, res) =>{
 
         const token = await useremail.generateAuthToken();
         console.log("the token part" + token);
+
+        res.cookie("jwt", token ,{
+            expires:new Date(Date.now() + 50000),
+            httpOnly:true,
+          //  secure:true
+        }); 
+        
+        console.log(`${req.cookies.jwt}`);
 
         if(isMatch){
             res.status(201).render("index");
