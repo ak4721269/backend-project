@@ -1,5 +1,4 @@
 # backend-project
-# backend-project
 
 This website is created on the frameworks HTML,CSS,Javascript,NodeJS,MongoDB, and Bcryptjs.The frontend part of this website is created using Bootstrap templates.
 
