@@ -105,11 +105,11 @@ app.post("/register", async (req,res) =>{
             //The value parameter may be a string or converted to JSON.
             //httpOnly to avoid client side modification
 
-            res.cookie("jwt", token ,{
-                expires:new Date(Date.now() + 60000),
-                httpOnly:true
-            });    
-            console.log(cookie);
+            // res.cookie("jwt", token ,{
+            //     expires:new Date(Date.now() + 60000),
+            //     httpOnly:true
+            // });    
+            // console.log(cookie);
 
             const registered = await registerEmployee.save();
             res.status(201).render("index");
@@ -146,7 +146,7 @@ app.post("/login", async(req, res) =>{
         console.log(`${req.cookies.jwt}`);
 
         if(isMatch){
-            res.status(201).render("index");
+            res.status(201).render("account");
         }else{
             res.send("invalid login details");
         }
