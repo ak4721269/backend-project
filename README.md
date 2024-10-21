@@ -19,3 +19,33 @@ The database used here is MongoDB.
 
 
 ![mongodb](https://github.com/ak4721269/backend-project/assets/37411935/c73ca97f-e7f5-411f-87de-524384046f38)
+
+Here’s a well-structured format for the steps to run your web app in a GitHub README file:
+
+```markdown
+# Steps to Run the Web Application
+
+To set up and run the web application, follow these steps:
+
+1. **Navigate to the Application Directory**  
+   Open your terminal or command prompt and change the directory to where the application file is located:
+   
+   cd backend-project/src
+   ```
+
+2. **Run the Application**  
+   Start the application by executing the `app.js` file with Node.js:
+   ```bash
+   node app.js
+   ```
+
+3. **Access the Web Application**  
+   Open your web browser and navigate to the following URL:
+   ```
+   http://localhost:3000
+   ```
+
+You should now see the web application running in your local browser!
+```
+
+
